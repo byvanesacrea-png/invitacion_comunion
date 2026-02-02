@@ -10027,6 +10027,7 @@ a.text-dark:hover, a.text-dark:focus {
   #header-carousel .carousel-inner,
   #header-carousel .carousel-item{
     width: 100%;
+    min-height: 75vh;   /* prueba 65vh–85vh */
   }
 
   /* La capa de la imagen: SIN RECORTE */
@@ -10043,3 +10044,38 @@ a.text-dark:hover, a.text-dark:focus {
     opacity: .35;
   }
 }
+
+/* ===== RSVP: arreglos responsive en móvil (evita recortes laterales) ===== */
+@media (max-width: 575.98px) {
+
+  /* Quita los márgenes negativos de .form-row para que no “se coma” los lados */
+  #rsvp .form-row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Quita padding lateral extra de las columnas dentro del form */
+  #rsvp .form-row > [class*="col-"]{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Ajusta tamaño y padding de inputs/textarea para móvil */
+  #rsvp .form-control{
+    font-size: 16px !important;          /* evita zoom raro en iOS */
+    padding: 0.9rem 1rem !important;     /* menos “tocho” que py-4 */
+  }
+
+  /* Ajusta selects (porque tienen height inline 52px) */
+  #rsvp select.form-control{
+    height: auto !important;
+    padding-top: 0.85rem !important;
+    padding-bottom: 0.85rem !important;
+  }
+
+  /* Textareas más cómodas */
+  #rsvp textarea.form-control{
+    min-height: 140px;
+  }
+}
+
