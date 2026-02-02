@@ -9574,7 +9574,11 @@ a.text-dark:hover, a.text-dark:focus {
 
 .section-title {
   margin-bottom: 30px;
+  padding-bottom: 30px; /* o 25px */
+
 }
+
+
 
 .section-title::before {
   position: absolute;
@@ -10019,16 +10023,23 @@ a.text-dark:hover, a.text-dark:focus {
   background: #fff;
 }
 
-/* MÓVIL: que no se recorten los laterales (ni el texto de la imagen) */
+/* ===============================
+   PORTADA RESPONSIVE (FINAL)
+   - Escritorio: imagen horizontal
+   - Móvil: imagen vertical sin recorte
+   =============================== */
+
 @media (max-width: 768px){
 
-  /* Asegura que el contenedor sea el “lienzo” */
+  /* Portada a pantalla completa */
   #header-carousel,
   #header-carousel .carousel-inner,
   #header-carousel .carousel-item{
     width: 100%;
-    min-height: 60vh;   /* prueba 65vh–85vh */
+    height: 100vh;
+    min-height: 100vh;
   }
+
   /* Elimina espacios extra */
   #header-carousel{
     margin: 0 !important;
@@ -10039,20 +10050,21 @@ a.text-dark:hover, a.text-dark:focus {
     padding: 0 !important;
   }
 
-  /* La capa de la imagen: SIN RECORTE */
+  /* Imagen de portada en móvil (VERTICAL) */
   .slide-a5 .slide-image{
-    background-size: contain !important;     /* clave: no recorta */
-    background-position: center center !important; /* clave: no desplaza */
+    background-image: url("/img/comunionmateuportadamvl.png") !important;
+    background-size: contain !important;      /* NO recorta */
+    background-position: center center !important;
     background-repeat: no-repeat !important;
-    background-color: #f7f3ee;              /* tono papel para los bordes */
+    background-color: #f7f3ee;                /* fondo papel */
   }
 
-  /* Si sigues usando blur, déjalo suave o quítalo en móvil */
+  /* En móvil quitamos efectos */
   .slide-a5 .slide-blur{
-    filter: blur(10px);
-    opacity: .35;
+    display: none !important;
   }
 }
+
 
 /* ===== RSVP: arreglos responsive en móvil (evita recortes laterales) ===== */
 @media (max-width: 575.98px) {
@@ -10086,5 +10098,62 @@ a.text-dark:hover, a.text-dark:focus {
   #rsvp textarea.form-control{
     min-height: 140px;
   }
+}
+
+/* --- FIX: líneas decorativas + corazón sin invadir el texto de abajo --- */
+.section-title{
+  position: relative;          /* por si algún día quitas position-relative en HTML */
+  padding-bottom: 40px;        /* crea espacio REAL dentro del bloque */
+  margin-bottom: 35px;         /* separa del texto de abajo */
+}
+
+.section-title i{
+  display: block;              /* centra bien el corazón */
+  margin-top: 10px;
+}
+
+.section-title::before,
+.section-title::after{
+  bottom: 18px;                /* sube las rayas dentro del bloque */
+}
+
+/* ====== DIVIDERS: líneas alineadas con el corazón ====== */
+.section-title{
+  position: relative;          /* clave para que ::before/::after se posicionen bien */
+  padding-bottom: 28px;        /* espacio para el divisor */
+  margin-bottom: 18px;         /* separación con lo de abajo */
+}
+
+/* Corazón centrado y en la misma “línea” */
+.section-title i.fa-heart,
+.section-title i.far.fa-heart{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;                   /* corazón abajo del bloque */
+  background: #fff;            /* tapa la línea por detrás y queda fino */
+  padding: 0 10px;
+  line-height: 1;
+  z-index: 2;
+}
+
+/* Las líneas (subimos un poco para que crucen el centro del corazón) */
+.section-title::before,
+.section-title::after{
+  bottom: 8px;                 /* ajusta este número si lo quieres 1-2px arriba/abajo */
+  z-index: 1;
+}
+
+/* ====== Reducir hueco entre EVENT y UBICACION ====== */
+#event{
+  padding-bottom: 10px !important;
+}
+
+#ubicacion{
+  padding-top: 10px !important;
+}
+
+#ubicacion .section-title{
+  margin-bottom: 10px;   /* menos aire bajo el título */
 }
 
