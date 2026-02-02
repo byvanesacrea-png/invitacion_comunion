@@ -10019,32 +10019,27 @@ a.text-dark:hover, a.text-dark:focus {
   background: #fff;
 }
 
-/* PORTADA: base */
-#home .carousel-item,
-#header-carousel .carousel-item{
-  position: relative;
-}
-
-/* Si estás usando background-image en el slide */
-#home .bg-cover,
-#home .slide-image{
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* En móvil: NO recortar, mostrar entera */
+/* MÓVIL: que no se recorten los laterales (ni el texto de la imagen) */
 @media (max-width: 768px){
-  #home .bg-cover,
-  #home .slide-image{
-    background-size: contain;
-    background-position: center;
-    background-color: #f7f3ee; /* tono suave parecido al papel */
+
+  /* Asegura que el contenedor sea el “lienzo” */
+  #header-carousel,
+  #header-carousel .carousel-inner,
+  #header-carousel .carousel-item{
+    width: 100%;
   }
 
-  /* Opcional: altura más “móvil-friendly” */
-  #home .carousel-item{
-    min-height: 70vh;
+  /* La capa de la imagen: SIN RECORTE */
+  .slide-a5 .slide-image{
+    background-size: contain !important;     /* clave: no recorta */
+    background-position: center center !important; /* clave: no desplaza */
+    background-repeat: no-repeat !important;
+    background-color: #f7f3ee;              /* tono papel para los bordes */
+  }
+
+  /* Si sigues usando blur, déjalo suave o quítalo en móvil */
+  .slide-a5 .slide-blur{
+    filter: blur(10px);
+    opacity: .35;
   }
 }
-
