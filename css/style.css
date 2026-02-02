@@ -10027,7 +10027,16 @@ a.text-dark:hover, a.text-dark:focus {
   #header-carousel .carousel-inner,
   #header-carousel .carousel-item{
     width: 100%;
-    min-height: 75vh;   /* prueba 65vh–85vh */
+    min-height: 60vh;   /* prueba 65vh–85vh */
+  }
+  /* Elimina espacios extra */
+  #header-carousel{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #header-carousel .carousel-item{
+    padding: 0 !important;
   }
 
   /* La capa de la imagen: SIN RECORTE */
