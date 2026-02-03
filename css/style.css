@@ -10157,3 +10157,10 @@ a.text-dark:hover, a.text-dark:focus {
   margin-bottom: 10px;   /* menos aire bajo el título */
 }
 
+@media (max-width: 768px){
+  #home{
+    padding: 0 !important;
+    background: transparent !important;
+  }
+}
+
