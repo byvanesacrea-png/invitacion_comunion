@@ -10160,7 +10160,7 @@ a.text-dark:hover, a.text-dark:focus {
 @media (max-width: 768px){
   #home{
     padding: 0 !important;
-    background: transparent !important;
+    background: #fff !important;
   }
 }
 
