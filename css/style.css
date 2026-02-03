@@ -10056,7 +10056,7 @@ a.text-dark:hover, a.text-dark:focus {
     background-size: contain !important;      /* NO recorta */
     background-position: center center !important;
     background-repeat: no-repeat !important;
-    background-color: beige;                /* fondo papel */
+    background-color: white;               /* fondo papel */
   }
 
   /* En móvil quitamos efectos */
